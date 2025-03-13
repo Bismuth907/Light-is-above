@@ -23,12 +23,8 @@ public class lightbar : MonoBehaviour
         }
         if (slider.value == 0)
         {
-            Die();
+            gameObject.GetComponent<respawnsystem>().Die();
         }
     }
-    private void Die()
-    {
-        Debug.Log($"{this.gameObject} est détruit !");
-        Destroy(this.gameObject);
-    }
+    
 }

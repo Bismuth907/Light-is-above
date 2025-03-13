@@ -25,6 +25,7 @@ public class healzone : MonoBehaviour
     private void OnTriggerStay2D()
     {
         _timer += Time.deltaTime;
+        Debug.Log("ok");
         if (_timer >= Interval) ;//ça marche mieux avec les ";" et jsp pk
         {
             if (slider.value > 0)

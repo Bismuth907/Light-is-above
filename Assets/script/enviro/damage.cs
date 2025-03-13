@@ -9,11 +9,6 @@ public class damage : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Die();
-    }
-    private void Die()
-    {
-        Debug.Log($"{player} est détruit !");
-        Destroy(player);
+       collision.gameObject.GetComponent<respawnsystem>().Die();
     }
 }
