@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class respawnsystem : MonoBehaviour
 {
     public Slider slider;
-    Vector2 startPos;
+    Vector2 checkpointPos;
     private void Start()
     {
-        startPos = transform.position;
+        checkpointPos = transform.position;
     }
 
     public void Die()
@@ -19,8 +19,12 @@ public class respawnsystem : MonoBehaviour
 
     void Respawn()
     {
-        transform.position = startPos;
+        transform.position = checkpointPos;
         slider.value = 100;
+    }
+    public void UpdateCheckpoint(Vector2 pos) 
+    {
+        checkpointPos = pos;
     }
     
 }
