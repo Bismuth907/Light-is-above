@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - WALL
+  - stop
   layers:
   - Default
   - TransparentFX

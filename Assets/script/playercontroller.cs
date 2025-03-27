@@ -13,6 +13,7 @@ public class PlayerCharacter2D : MonoBehaviour
     private bool jump = false;
     public float speed = 5.0f;
     public float maxSpeed = 5.0f;
+    public float maxjumpspeed = 5.0f;
     public float jumpForce = 5.0f;
 
     private Rigidbody2D _rigidbody;
@@ -64,12 +65,19 @@ public class PlayerCharacter2D : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                Vector2 velocity = _rigidbody.linearVelocity;
+                velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
+                _rigidbody.linearVelocity = velocity;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
         {
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Vector2 velocity = _rigidbody.linearVelocity;
+            velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
+            _rigidbody.linearVelocity = velocity;
             doublejump = true;
+
         }
     }
 
