@@ -15,6 +15,7 @@ public class PlayerCharacter2D : MonoBehaviour
     public float maxSpeed = 5.0f;
     public float maxjumpspeed = 5.0f;
     public float jumpForce = 5.0f;
+    public float maxgravityscale = 6.0f;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -65,20 +66,20 @@ public class PlayerCharacter2D : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                Vector2 velocity = _rigidbody.linearVelocity;
-                velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
-                _rigidbody.linearVelocity = velocity;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
         {
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            Vector2 velocity = _rigidbody.linearVelocity;
-            velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
-            _rigidbody.linearVelocity = velocity;
             doublejump = true;
-
         }
+
+        Vector2 velocity = _rigidbody.linearVelocity;
+        velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
+        _rigidbody.linearVelocity = velocity;
+
+        if (velocity.y < 0)
+            _rigidbody.gravityScale = 3;
     }
 
     private void ClampVelocity()
@@ -90,13 +91,13 @@ public class PlayerCharacter2D : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("ground")&&_rigidbody.linearVelocity.y == 0)
-        { jump = false; doublejump = false; }
+        { jump = false; doublejump = false; _rigidbody.gravityScale = 1.73f; }
 
     }
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ground") && _rigidbody.linearVelocity.y == 0)
-        { jump = false; doublejump = false; }
+        { jump = false; doublejump = false; _rigidbody.gravityScale = 1.73f; }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

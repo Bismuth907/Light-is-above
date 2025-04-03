@@ -1,18 +1,18 @@
 using UnityEngine;
-
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
-using UnityEngine;
+
 public class elevationscript : MonoBehaviour
 {
-    Vector2 movement = Vector2.zero;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-    }
-    void OnCollisionStay2D(Collision2D collision) 
-    {
-    }
 
+    public float forceApplied = 50;
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        Debug.Log("Collision!");
+        if (col.gameObject.name == "Player")
+        {
+            Debug.Log("chdjfc");
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * forceApplied, ForceMode2D.Impulse);
+        }
+    }
 }
