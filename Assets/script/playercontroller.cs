@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerCharacter2D : MonoBehaviour
 {
+    public Slider slider;
     private static bool getdoublejump = false;
     private bool doublejump = false;
     private bool jump = false;
@@ -66,12 +68,16 @@ public class PlayerCharacter2D : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+
+                slider.value -= 5;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
         {
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             doublejump = true;
+            slider.value -= 5;
         }
 
         Vector2 velocity = _rigidbody.linearVelocity;
@@ -90,18 +96,18 @@ public class PlayerCharacter2D : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("ground")&&_rigidbody.linearVelocity.y == 0)
+        if((collision.gameObject.CompareTag("ground")|| collision.gameObject.CompareTag("plateform")) &&_rigidbody.linearVelocity.y == 0)
         { jump = false; doublejump = false; _rigidbody.gravityScale = 1.73f; }
 
     }
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground") && _rigidbody.linearVelocity.y == 0)
+        if ((collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("plateform")) && _rigidbody.linearVelocity.y == 0)
         { jump = false; doublejump = false; _rigidbody.gravityScale = 1.73f; }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("plateform"))
         { jump = true; }
     }
 }

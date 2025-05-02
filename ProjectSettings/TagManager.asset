@@ -8,11 +8,12 @@ TagManager:
   - WALL
   - stop
   - elevation zone
+  - plateform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - light zone
   - Water
   - UI
   - 
