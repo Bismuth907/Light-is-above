@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class PlayerCharacter2D : MonoBehaviour
+public class playercontroller : MonoBehaviour
 {
     public Slider slider;
     private static bool getdoublejump = false;
+    public static bool can_double_jump = true;
     private bool doublejump = false;
     private bool jump = false;
     public float speed = 5.0f;
@@ -73,19 +74,22 @@ public class PlayerCharacter2D : MonoBehaviour
                 slider.value -= 5;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
+        else if (can_double_jump == false) 
         {
-            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            doublejump = true;
-            slider.value -= 5;
+           if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
+            {
+                _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                doublejump = true;
+                slider.value -= 5;
+            }
+
+            Vector2 velocity = _rigidbody.linearVelocity;
+            velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
+            _rigidbody.linearVelocity = velocity;
+
+            if (velocity.y < 0)
+                _rigidbody.gravityScale = 3; 
         }
-
-        Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
-        _rigidbody.linearVelocity = velocity;
-
-        if (velocity.y < 0)
-            _rigidbody.gravityScale = 3;
     }
 
     private void ClampVelocity()
