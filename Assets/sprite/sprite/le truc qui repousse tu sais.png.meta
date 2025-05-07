@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 930715fa3d3e9b34e8a01eb7e43b075e
+guid: a92ce5964e5fce448b8b33547dce1c38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5078079707936793825
-    second: image0018_0
-  - first:
-      213: 2945184335095090450
-    second: image0018_1
-  - first:
-      213: 3050302547832464306
-    second: image0018_2
-  - first:
-      213: -901391445673997508
-    second: image0018_3
+      213: -1055852482816431832
+    second: le truc qui repousse tu sais_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,9 +49,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.45}
-  spritePixelsToUnits: 400
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image0018_0
+      name: le truc qui repousse tu sais_0
       rect:
         serializedVersion: 2
-        x: 1487
-        y: 824
-        width: 652
-        height: 360
+        x: 143
+        y: 91
+        width: 187
+        height: 199
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e421bce696f87640800000000000000
-      internalID: 5078079707936793825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image0018_1
-      rect:
-        serializedVersion: 2
-        x: 1368
-        y: 539
-        width: 589
-        height: 262
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21d436b6c856fd820800000000000000
-      internalID: 2945184335095090450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image0018_2
-      rect:
-        serializedVersion: 2
-        x: 1572
-        y: 358
-        width: 231
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b3e50d810ad45a20800000000000000
-      internalID: 3050302547832464306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image0018_3
-      rect:
-        serializedVersion: 2
-        x: 1672
-        y: 382
-        width: 207
-        height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3b8605814d9d73f0800000000000000
-      internalID: -901391445673997508
+      spriteID: 8292382d2cbd851f0800000000000000
+      internalID: -1055852482816431832
       vertices: []
       indices: 
       edges: []
@@ -201,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      image0018_0: 5078079707936793825
-      image0018_1: 2945184335095090450
-      image0018_2: 3050302547832464306
-      image0018_3: -901391445673997508
+      le truc qui repousse tu sais_0: -1055852482816431832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

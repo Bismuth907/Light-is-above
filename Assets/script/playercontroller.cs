@@ -19,6 +19,7 @@ public class playercontroller : MonoBehaviour
     public float maxjumpspeed = 5.0f;
     public float jumpForce = 5.0f;
     public float maxgravityscale = 6.0f;
+    public float doublejumpForce = 5.0f;
 
     private Rigidbody2D _rigidbody;
     public Animator _animator;
@@ -46,13 +47,13 @@ public class playercontroller : MonoBehaviour
     private void UpdateMovement()
     {
         movement = Vector2.zero;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)|| Input.GetKey(KeyCode.A))
         {
             movement.x += -1;
             direction = true;
             _animator.SetBool("movit", true);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.D))
         {
             movement.x += 1;
             direction = false;
@@ -91,7 +92,7 @@ public class playercontroller : MonoBehaviour
         {
            if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
             {
-                _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, jumpForce);
+                _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, doublejumpForce);
                  _animator.SetBool("is jumping", false);
                 _animator.SetBool("is double jumping", true);
                 
@@ -127,5 +128,6 @@ public class playercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("plateform"))
         { jump = true; }
+        _animator.SetBool("Grounded", false);
     }
 }
