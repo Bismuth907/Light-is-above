@@ -1,4 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening.Plugins.Options;
 using DG.Tweening;
 using DG.Tweening.Core;
@@ -10,7 +15,7 @@ public class verticalscript : MonoBehaviour
     public LoopType loopType;
     public Ease easetruc;
 
-    private void OnCollisionEnter2D()
+    private void Start()
     {
         transform.DOMoveY(pointf, durée)
         .SetEase(easetruc)

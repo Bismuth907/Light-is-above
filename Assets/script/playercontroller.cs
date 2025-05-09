@@ -18,8 +18,9 @@ public class playercontroller : MonoBehaviour
     public float maxSpeed = 5.0f;
     public float maxjumpspeed = 5.0f;
     public float jumpForce = 5.0f;
-    public float maxgravityscale = 6.0f;
+    public float maxgravityscale = 8.0f;
     public float doublejumpForce = 5.0f;
+    public float clampVelY;
 
     private Rigidbody2D _rigidbody;
     public Animator _animator;
@@ -40,8 +41,6 @@ public class playercontroller : MonoBehaviour
 
         spriteRenderer.flipX = direction;
 
-        _animator.SetFloat("velocity", _rigidbody.linearVelocity.x);
-        _animator.SetBool("isJumping", _rigidbody.linearVelocity.y != 0);
     }
 
     private void UpdateMovement()
@@ -80,19 +79,22 @@ public class playercontroller : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, jumpForce);
                 _animator.SetBool("is jumping", true);
                 
                 _animator.SetBool("Grounded", false);
 
                 slider.value -= 5;
             }
+            
         }
         else if (can_double_jump == false) 
         {
            if (Input.GetKeyDown(KeyCode.Space) && doublejump == false)
             {
                 _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, doublejumpForce);
+                //_rigidbody.AddForce(new Vector2(_rigidbody.linearVelocity.x, doublejumpForce), ForceMode2D.Impulse);
+                _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, Mathf.Clamp(_rigidbody.linearVelocity.y, -100000, clampVelY));
                  _animator.SetBool("is jumping", false);
                 _animator.SetBool("is double jumping", true);
                 
@@ -100,13 +102,14 @@ public class playercontroller : MonoBehaviour
                 slider.value -= 5;
             }
 
-            Vector2 velocity = _rigidbody.linearVelocity;
-            velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
-            _rigidbody.linearVelocity = velocity;
 
-            if (velocity.y < 0)
-                _rigidbody.gravityScale = 3; 
         }
+        Vector2 velocity = _rigidbody.linearVelocity;
+        velocity.y = Mathf.Clamp(velocity.y, -maxjumpspeed, maxjumpspeed);
+        _rigidbody.linearVelocity = velocity;
+
+        if (velocity.y < 0)
+            _rigidbody.gravityScale = 6;
     }
 
     private void ClampVelocity()
@@ -118,7 +121,7 @@ public class playercontroller : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision)
     {
         if ((collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("plateform")) && _rigidbody.linearVelocity.y == 0)
-        { jump = false; doublejump = false; _rigidbody.gravityScale = 1.73f;
+        { jump = false; doublejump = false; _rigidbody.gravityScale = 3f;
             _animator.SetBool("Grounded", true);
             _animator.SetBool("is jumping", false);
             _animator.SetBool("is double jumping", false);

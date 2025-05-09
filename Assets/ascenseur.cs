@@ -10,7 +10,7 @@ public class ascenseur : MonoBehaviour
     public LoopType loopType;
     public Ease easetruc;
 
-    private void Oncollisionenter(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         transform.DOMoveY(pointf, durée)
         .SetEase(easetruc)
