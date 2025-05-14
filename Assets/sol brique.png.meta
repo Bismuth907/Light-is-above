@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sol brique_0: -4082285535882191100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
