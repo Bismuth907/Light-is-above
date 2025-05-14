@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class healzone : MonoBehaviour
 {
-    public Slider slider;
+    public Image Healthbarfiller;
     public float Interval = 2f;
     private float _timer = 0f;
     private void OnTriggerEnter2D()
@@ -14,9 +15,9 @@ public class healzone : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= Interval) ;
         {
-            if (slider.value > 0)
+            if (Healthbarfiller.fillAmount > 0f)
             {
-                slider.value += 1;
+                Healthbarfiller.fillAmount += 0.008f;
             }
 
             _timer = 0f;
@@ -28,9 +29,10 @@ public class healzone : MonoBehaviour
         Debug.Log("ok");
         if (_timer >= Interval) ;//ça marche mieux avec les ";" et jsp pk
         {
-            if (slider.value > 0)
+            if (Healthbarfiller.fillAmount > 0f)
             {
-                slider.value += 1;
+                Healthbarfiller.fillAmount += 0.008f;
+                
             }
 
             _timer = 0f;

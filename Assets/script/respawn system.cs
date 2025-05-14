@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class respawnsystem : MonoBehaviour
 {
-    public Slider slider;
+    public Image Healthbarfiller;
     Vector2 checkpointPos;
     private void Start()
     {
@@ -20,7 +20,7 @@ public class respawnsystem : MonoBehaviour
     void Respawn()
     {
         transform.position = checkpointPos;
-        slider.value = 100;
+        Healthbarfiller.fillAmount = 1f;
     }
     public void UpdateCheckpoint(Vector2 pos) 
     {
