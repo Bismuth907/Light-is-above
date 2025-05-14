@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class lightbar : MonoBehaviour
 {
-    public Slider slider;
+    public Image Healthbarfiller;
     public float Interval = 2f;
     private float _timer = 0f;
     void Update()
@@ -14,14 +14,14 @@ public class lightbar : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= Interval)
         {
-            if (slider.value > 0)
+            if (Healthbarfiller.fillAmount > 0)
             {
-                slider.value -= 1;
+                Healthbarfiller.fillAmount =- 0.008f;
             }
 
             _timer = 0f;
         }
-        if (slider.value == 0)
+        if (Healthbarfiller.fillAmount == 0)
         {
             gameObject.GetComponent<respawnsystem>().Die();
         }
