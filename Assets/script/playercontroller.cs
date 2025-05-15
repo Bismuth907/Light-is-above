@@ -26,7 +26,7 @@ public class playercontroller : MonoBehaviour
     public float coyotetime3 ;
     public bool isgrounded = false;
     public float coyeJumping;
-
+    public static float Health = 1f;
     private Rigidbody2D _rigidbody;
     public Animator _animator;
     public SpriteRenderer spriteRenderer;
@@ -85,7 +85,11 @@ public class playercontroller : MonoBehaviour
         ClampVelocity();
 
         spriteRenderer.flipX = direction;
-
+        Healthbarfiller.fillAmount = Health;
+        if (Health>1) 
+        {
+            Health = 1;
+        }
     }
 
     private void UpdateMovement()
@@ -134,7 +138,7 @@ public class playercontroller : MonoBehaviour
 
                 _animator.SetBool("Grounded", false);
 
-                Healthbarfiller.fillAmount -= 0.04f;
+                Health -= 0.04f;
                 Debug.Log(coyotetimecounter + (" : Hello :D"));
 
             }
@@ -149,7 +153,7 @@ public class playercontroller : MonoBehaviour
 
                 _animator.SetBool("Grounded", false);
 
-                Healthbarfiller.fillAmount -= 0.04f;
+                Health -= 0.04f;
                 Debug.Log(coyotetimecounter + (" : Hello :D"));
 
             }
@@ -166,7 +170,7 @@ public class playercontroller : MonoBehaviour
                 _animator.SetBool("is double jumping", true);
 
                 doublejump = true;
-                Healthbarfiller.fillAmount -= 0.04f;
+                Health -= 0.04f;
             }
         }
             Vector2 velocity = _rigidbody.linearVelocity;
