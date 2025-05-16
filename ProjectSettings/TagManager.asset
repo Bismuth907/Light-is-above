@@ -16,6 +16,8 @@ TagManager:
   - light zone
   - Water
   - UI
+  - ground and wall
+  - background elements
   - 
   - 
   - 
@@ -37,9 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - le back
   - 
   - 
   m_SortingLayers:
