@@ -4,41 +4,40 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - ground
   - WALL
+  - ground
   - stop
-  - elevation zone
   - plateform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - light zone
+  - 
   - Water
   - UI
+  - pit
+  - contour noir
+  - 
+  - back close
+  - back close 2
   - 
   - 
+  - 9
   - 
   - 
+  - semi far
+  - 
+  - back far
   - 
   - 
+  - back
   - 
   - 
+  - 'fond noir '
+  - player and ground
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - truc qui doit passer devant
   - 
   - 
   - 

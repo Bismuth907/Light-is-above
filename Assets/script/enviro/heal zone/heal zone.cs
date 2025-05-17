@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class healzone : MonoBehaviour
 {
-    public Image Healthbarfiller;
     public float Interval = 2f;
     private float _timer = 0f;
     private void OnTriggerEnter2D()
@@ -15,9 +14,9 @@ public class healzone : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= Interval);
         {
-            if (Healthbarfiller.fillAmount > 0f)
+            if (playercontroller.Health > 0f)
             {
-                Healthbarfiller.fillAmount += 0.008f;
+                playercontroller.Health += 0.009f;
             }
 
             _timer = 0f;
@@ -29,9 +28,9 @@ public class healzone : MonoBehaviour
         Debug.Log("ok");
         if (_timer >= Interval) ;//ça marche mieux avec les ";" et jsp pk
         {
-            if (Healthbarfiller.fillAmount > 0f)
+            if (playercontroller.Health > 0f)
             {
-                Healthbarfiller.fillAmount += 0.008f;
+                playercontroller.Health += 0.009f;
                 
             }
 

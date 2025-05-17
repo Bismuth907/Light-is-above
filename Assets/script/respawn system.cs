@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class respawnsystem : MonoBehaviour
 {
-    public Image Healthbarfiller;
     Vector2 checkpointPos;
     private void Start()
     {
@@ -20,7 +19,7 @@ public class respawnsystem : MonoBehaviour
     void Respawn()
     {
         transform.position = checkpointPos;
-        Healthbarfiller.fillAmount = 1f;
+       playercontroller.Health = 1f;
     }
     public void UpdateCheckpoint(Vector2 pos) 
     {
