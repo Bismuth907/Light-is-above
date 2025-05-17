@@ -13,7 +13,7 @@ public class healzone : MonoBehaviour
     private void OnTriggerEnter2D()
     {
         _timer += Time.deltaTime;
-        if (_timer >= Interval) ;
+        if (_timer >= Interval);
         {
             if (Healthbarfiller.fillAmount > 0f)
             {
