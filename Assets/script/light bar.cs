@@ -15,7 +15,7 @@ public class lightbar : MonoBehaviour
         {
             if (playercontroller.Health > 0)
             {
-                playercontroller.Health -= 0.004f;
+                playercontroller.Health -= 0.008f;
             }
 
             _timer = 0f;
