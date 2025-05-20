@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class playercontroller : MonoBehaviour
 {
     public Image Healthbarfiller;
-    private static bool getdoublejump = false;
-    public static bool can_double_jump = true;
-    public bool doublejump = false;
+    public bool can_double_jump = true;
+    public bool doublejump;
     public bool jump = false;
     public float speed = 5.0f;
     public float maxSpeed = 5.0f;
@@ -32,9 +31,10 @@ public class playercontroller : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private Vector2 movement;
     private bool direction;
-    private void Awake()
+    private void Start()
     {
         isgrounded = false;
+        doublejump = true;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }

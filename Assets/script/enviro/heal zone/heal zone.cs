@@ -12,7 +12,7 @@ public class healzone : MonoBehaviour
     private void OnTriggerEnter2D()
     {
         _timer += Time.deltaTime;
-        if (_timer >= Interval);
+        if (_timer >= Interval) ;
         {
             if (playercontroller.Health > 0f)
             {
@@ -26,7 +26,7 @@ public class healzone : MonoBehaviour
     {
         _timer += Time.deltaTime;
         Debug.Log("ok");
-        if (_timer >= Interval) ;//ça marche mieux avec les ";" et jsp pk
+        if (_timer >= Interval) ;   //ça marche mieux avec les ";" et jsp pk
         {
             if (playercontroller.Health > 0f)
             {

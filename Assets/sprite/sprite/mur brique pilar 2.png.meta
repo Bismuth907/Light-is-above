@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mur brique pilar 2_0: 4375720949778436855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
