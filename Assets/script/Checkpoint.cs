@@ -4,6 +4,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     respawnsystem respawnsystem;
+    public Animator _animator;
     private void Awake()
     {
         respawnsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<respawnsystem>();
@@ -13,6 +14,7 @@ public class Checkpoint : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             respawnsystem.UpdateCheckpoint(transform.position);
+            _animator.SetBool("checkpoint", true);
         }
     }
 }
