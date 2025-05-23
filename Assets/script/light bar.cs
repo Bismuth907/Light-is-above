@@ -13,7 +13,7 @@ public class lightbar : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= Interval)
         {
-            if (playercontroller.Health > 0)
+            if (playercontroller.Health > 0 && IntroMenu.isBeginning == false)
             {
                 playercontroller.Health -= 0.008f;
             }
